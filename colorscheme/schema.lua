@@ -1,34 +1,37 @@
 local color = require("colorscheme.color")
 
-local bg = "#1f2830"
+local bg = "#293235"
+local fg = "#d4cbb8"
 
 return {
 	theme = "Proxima",
 	palette = {
 		-- Accent color
-		accent = "#8fd780",
+		accent = "#a4c76f",
 		-- Backgrounds & Foregrounds
-		bg0 = color.darken(bg, 32),
-		bg1 = bg,
-		bg2 = color.lighten(bg, 6),
-		bg3 = color.lighten(bg, 12),
-		bg4 = color.lighten(bg, 18),
-		fg0 = color.lighten(bg, 96),
-		fg1 = color.lighten(bg, 88),
-		fg2 = color.lighten(bg, 72),
-		fg3 = color.lighten(bg, 64),
+		dark = color.darken(bg, 32),
+		bg0 = color.darken(bg, 16),
+		bg = bg,
+		bg2 = color.lighten(bg, 4),
+		bg3 = color.lighten(bg, 8),
+		bg4 = color.lighten(bg, 12),
+		fg0 = color.lighten(fg, 56),
+		fg = fg,
+		fg2 = color.darken(fg, 16),
+		fg3 = color.darken(fg, 32),
+		fg4 = color.darken(fg, 48),
 		-- Palette
-		red = "#f36a6f",
-		orange = "#efaa6f",
-		yellow = "#e6dd90",
-		green = "#8fd780",
-		teal = "#4fd5b5",
-		cyan = "#5ddae2",
-		blue = "#62b1ff",
-		magenta = "#b28ff5",
-		pink = "#e67aca",
-		black = color.lighten(bg, 24),
-		gray = color.lighten(bg, 40),
-		white = color.lighten(bg, 96),
+		red = "#e67e80",
+		green = "#a4c76f",
+		yellow = "#d1cc66",
+		blue = "#5fbde8",
+		magenta = "#a382d1",
+		cyan = "#73c9c5",
+		teal = "#58d699",
+		orange = "#de995d",
+		pink = "#d971c4",
+		black = color.lighten(bg, 18),
+		gray = color.lighten(bg, 24),
+		white = color.lighten(fg, 64),
 	},
 }
