@@ -1,14 +1,27 @@
 #!/bin/lua
 
-local schema = require("colorscheme.schema")
+local palette = require("colorscheme.palette")
 local template = require("colorscheme.template")
 
-local content = template.generate(schema)
-local path = "./oomox/colors/" .. schema.theme
-local file = io.open(path, "w")
-if file then
-  io.output(file)
-  io.write(content)
-  io.close(file)
-  print("Generated themix colorscheme for " .. schema.theme .. " GTK theme.")
+local styles = { "Alpha", "Gamma" }
+local accents = { "White", "Red", "Orange", "Yellow", "Green", "Blue", "Cyan", "Teal", "Pink", "Magenta" }
+
+local function create_theme(style, accent)
+	local p = palette(style, accent)
+	local name = p.name .. "-" .. style .. "-" .. accent
+	local path = "./oomox/colors/" .. name
+	local content = template(p)
+	local file = io.open(path, "w")
+	if file then
+		io.output(file)
+		io.write(content)
+		io.close(file)
+		print("Generated " .. name .. " GTK theme.")
+	end
+end
+
+for _, s in ipairs(styles) do
+	for _, a in ipairs(accents) do
+		create_theme(s, a)
+	end
 end

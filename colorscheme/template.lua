@@ -1,10 +1,8 @@
-local util = require("colorscheme.util")
+local helpers = require("colorscheme.lib.helpers")
 
-local M = {}
-
-M.generate = function(schema)
-	local sch = util.remove_hashtag_from_schema(schema)
-	return util.template(
+return function(pal)
+	local p = helpers.palette_without_sharp(pal)
+	return helpers.template(
 		[[ACCENT_BG=${accent}
 BASE16_GENERATE_DARK=False
 BASE16_INVERT_TERMINAL=False
@@ -29,7 +27,7 @@ ICONS_ARCHDROID=${fg}
 ICONS_DARK=${bg}
 ICONS_LIGHT=${accent}
 ICONS_LIGHT_FOLDER=${accent}
-ICONS_MEDIUM=55994c
+ICONS_MEDIUM=${accent}
 ICONS_NUMIX_STYLE=0
 ICONS_STYLE=papirus_icons
 ICONS_SYMBOLIC_ACTION=${fg}
@@ -82,8 +80,6 @@ TXT_FG=${fg}
 UNITY_DEFAULT_LAUNCHER_STYLE=False
 WM_BORDER_FOCUS=${accent}
 WM_BORDER_UNFOCUS=${bg4}]],
-		sch
+		p
 	)
 end
-
-return M
