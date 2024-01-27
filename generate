@@ -3,8 +3,8 @@
 local palette = require("colorscheme.palette")
 local template = require("colorscheme.template")
 
-local styles = { "Alpha", "Gamma" }
-local accents = { "White", "Red", "Orange", "Yellow", "Green", "Blue", "Cyan", "Teal", "Pink", "Magenta" }
+local styles = { "Forest", "Midnight" }
+local accents = { "Red", "Orange", "Yellow", "Green", "Blue", "Cyan", "Teal", "Pink", "Magenta" }
 
 local function create_theme(style, accent)
 	local p = palette(style, accent)
