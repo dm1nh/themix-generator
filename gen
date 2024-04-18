@@ -1,0 +1,26 @@
+#!/bin/lua
+
+local palette = require("color.palette")
+local template = require("color.template")
+
+local variants = { "Twilight", "Midnight" }
+local name = "Crux"
+
+local function create_theme(variant)
+  variant = variant or "Midnight"
+	local p = palette(variant)
+	local theme = name .. "-" .. variant
+	local path = "./oomox/colors/" .. theme
+	local content = template(p)
+	local file = io.open(path, "w")
+	if file then
+		io.output(file)
+		io.write(content)
+		io.close(file)
+		print("Generated " .. theme .. " GTK theme.")
+	end
+end
+
+for _, s in ipairs(variants) do
+		create_theme(s)
+end
