@@ -1,44 +1,43 @@
 local clr = require("color.color")
 
-
 local variants = {
-  Midnight = {
-    none = "NONE",
-    bg = "#1c1d28",
-    fg = "#b3bde4",
-    red = "#e66c6e",
-    orange = "#e69875",
-    yellow = "#d9c574",
-    green = "#b3d57d",
-    teal = "#7cd398",
-    blue = "#6d80ed",
-    cyan = "#7adbce",
-    magenta = "#cd84a7",
-    purple = "#9e6cd0",
-  },
-  Twilight = {
-    none = "NONE",
-    bg = "#232432",
-    fg = "#c0c8e9",
-    red = "#e66c6e",
-    orange = "#e69875",
-    yellow = "#d9c574",
-    green = "#b3d57d",
-    teal = "#7cd398",
-    blue = "#6d80ed",
-    cyan = "#7adbce",
-    magenta = "#cd84a7",
-    purple = "#9e6cd0",
-  },
+	Midnight = {
+		none = "NONE",
+		bg = "#1d2021",
+		fg = "#dad4c3",
+		red = "#e66c6e",
+		orange = "#e69875",
+		yellow = "#d9c574",
+		green = "#b3d57d",
+		teal = "#7cd398",
+		blue = "#6d80ed",
+		cyan = "#7adbce",
+		magenta = "#cd84a7",
+		purple = "#9e6cd0",
+	},
+	Twilight = {
+		none = "NONE",
+		bg = "#1c1d28",
+		fg = "#b3bde4",
+		red = "#e66c6e",
+		orange = "#e69875",
+		yellow = "#d9c574",
+		green = "#b3d57d",
+		teal = "#7cd398",
+		blue = "#6d80ed",
+		cyan = "#7adbce",
+		magenta = "#cd84a7",
+		purple = "#9e6cd0",
+	},
 }
 
 return function(variant)
-  variant = variant or "Midnight"
-  local p = variants[variant]
+	variant = variant or "Midnight"
+	local p = variants[variant]
 
-  return {
+	return {
 		-- Accent color
-		accent = p.blue,
+		accent = p.green,
 		fg = p.fg,
 		bg = p.bg,
 		red = p.red,
@@ -78,5 +77,5 @@ return function(variant)
 		comment = clr.lighten(p.bg, 0.75),
 		black = clr.lighten(p.bg, 0.7),
 		white = p.fg,
-}
+	}
 end
