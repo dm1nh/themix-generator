@@ -1,14 +1,5 @@
 local M = {}
 
-function M.round(x, p)
-	local power = 10 ^ (p or 0)
-	return (x * power + 0.5 - (x * power + 0.5) % 1) / power
-end
-
-function M.clamp(val, min, max)
-	return math.min(math.max(val, min), max)
-end
-
 function M.contains(obj, value)
 	for _, v in pairs(obj) do
 		if v == value then
@@ -41,11 +32,9 @@ function M.deepcopy(orig, copies)
 end
 
 function M.template(tpl, palette)
-	return (
-		tpl:gsub("($%b{})", function(w)
-			return palette[w:sub(3, -2)] or w
-		end)
-	)
+	return (tpl:gsub("($%b{})", function(w)
+		return palette[w:sub(3, -2)] or w
+	end))
 end
 
 function M.remove_hashtag_from_schema(palette)
